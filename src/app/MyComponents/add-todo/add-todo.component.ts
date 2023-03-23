@@ -9,6 +9,7 @@ import { Todo } from 'src/app/Todo';
 export class AddTodoComponent {
   title: string | undefined;
   desc: string | undefined;
+  isDisabled = true;
   @Output() todoAdd: EventEmitter<Todo> = new EventEmitter();
 
   constructor() {}
@@ -22,10 +23,17 @@ export class AddTodoComponent {
     };
     this.todoAdd.emit(todo);
     this.clearFields();
+    this.isDisabled = true; // disable the button until the user types something in both fields
+    if (todo.title && todo.desc) {
+      this.todoAdd.emit(todo);
+    }
   }
 
   clearFields() {
     this.title = '';
     this.desc = '';
+  }
+  updateDisabledState() {
+    this.isDisabled = !this.title || !this.desc;
   }
 }
