@@ -7,17 +7,25 @@ import { Todo } from 'src/app/Todo';
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent {
-title:string | undefined;
-desc:string | undefined;
-@Output() todoAdd: EventEmitter<Todo> =new EventEmitter();
-constructor(){}
-OnSubmit(){
-  const todo={
-    sno:1,
-    title:this.title,
-    desc:this.desc,
-    active:true
+  title: string | undefined;
+  desc: string | undefined;
+  @Output() todoAdd: EventEmitter<Todo> = new EventEmitter();
+
+  constructor() {}
+
+  OnSubmit() {
+    const todo = {
+      sno: 1,
+      title: this.title,
+      desc: this.desc,
+      active: true
+    };
+    this.todoAdd.emit(todo);
+    this.clearFields();
   }
-  this.todoAdd.emit(todo);
-}
+
+  clearFields() {
+    this.title = '';
+    this.desc = '';
+  }
 }

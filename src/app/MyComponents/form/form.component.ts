@@ -19,7 +19,7 @@ ngOnInit(){
 onSubmit(){
   console.log(this.reactiveForm);
 }
-nospaceAllowed(control:FormControl){        //custom validator
+nospaceAllowed(control:FormControl){        ///custom validator
    if(control.value!=null && control.value.indexOf(' ')!=-1){
      return {nospaceAllowed:true}
    }
