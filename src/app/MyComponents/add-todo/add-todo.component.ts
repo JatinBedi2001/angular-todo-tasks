@@ -21,7 +21,6 @@ export class AddTodoComponent {
       desc: this.desc,
       active: true
     };
-    this.todoAdd.emit(todo);
     this.clearFields();
     this.isDisabled = true; // disable the button until the user types something in both fields
     if (todo.title && todo.desc) {
