@@ -20,7 +20,7 @@ onSubmit(){
   console.log(this.reactiveForm);
 }
 nospaceAllowed(control:FormControl){        //custom validator
-   if(control.value!=null && control.value.indexOf('')!=-1){
+   if(control.value!=null && control.value.indexOf(' ')!=-1){
      return {nospaceAllowed:true}
    }
    return null;
